@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_2/screens/home_screen.dart';
+import 'package:news_app_2/screens/landing_screen.dart';
 
 void main() {
   runApp(const MyApp());
