@@ -1,4 +1,4 @@
-class ArticleModel{
+class ArticleModel {
   String? author;
   String? title;
   String? description;
@@ -6,5 +6,12 @@ class ArticleModel{
   String? urlToImage;
   String? content;
 
-
+  ArticleModel({
+    this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.content,
+  });
 }
