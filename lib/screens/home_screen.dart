@@ -29,22 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int activeIndex = 0;
 
-  // @override
-  // void initState() {
-  //   categories = getCategories();
-  //   sliders = getSliders();
-  //   getNews();
-  //   super.initState();
-  // }
-  //
-  // getNews() async {
-  //   News newsclass = News();
-  //   articles = newsclass.news;
-  //   setState(() {
-  //     _loading = false;
-  //   });
-  // }
-
   getNews() async {
     News news = News();
     await news.getNews();
