@@ -171,17 +171,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 15.0,
                     ),
-                    Container(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                          itemCount: articles.length,
-                          itemBuilder: (context, index) {
-                            return TrendingNews(
-                                desc: articles[index].description!,
-                                imageUrl: articles[index].urlToImage!,
-                                title: articles[index].title!);
-                          }),
-                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                        physics: const ClampingScrollPhysics(),
+                        itemCount: articles.length,
+                        itemBuilder: (context, index) {
+                          return TrendingNews(
+                              desc: articles[index].description!,
+                              imageUrl: articles[index].urlToImage!,
+                              title: articles[index].title!, url: articles[index].url!,);
+                        }),
                   ],
                 ),
               ),
