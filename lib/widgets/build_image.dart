@@ -1,5 +1,6 @@
 // to save all the list to run in few seconds
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BuildImage extends StatelessWidget {
@@ -23,8 +24,8 @@ class BuildImage extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              image,
+            child: CachedNetworkImage(
+              imageUrl: image,
               fit: BoxFit.cover,
               height: 250,
               width: MediaQuery.of(context).size.width,
@@ -32,11 +33,11 @@ class BuildImage extends StatelessWidget {
           ),
           Container(
             height: 250,
-            padding: EdgeInsets.only(left: 10.0),
-            margin: EdgeInsets.only(top: 170.0),
+            padding: const EdgeInsets.only(left: 10.0),
+            margin: const EdgeInsets.only(top: 170.0),
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: Colors.black26,
+            decoration: const BoxDecoration(
+              color: Colors.black45,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10),
@@ -44,9 +45,10 @@ class BuildImage extends StatelessWidget {
             ),
             child: Text(
               name,
-              style: TextStyle(
+              maxLines: 2,
+              style: const TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: 19.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

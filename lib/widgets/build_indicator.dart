@@ -13,11 +13,10 @@ class BuildIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sliders;
     return AnimatedSmoothIndicator(
       activeIndex: activeIndex,
-      count: count,
-      effect: SlideEffect(
+      count: 5,
+      effect: const SlideEffect(
         dotWidth: 15,
         dotHeight: 15,
         activeDotColor: Colors.deepOrange,

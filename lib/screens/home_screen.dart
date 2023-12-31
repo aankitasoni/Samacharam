@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app_2/screens/all_news_screen.dart';
 import 'package:news_app_2/services/data.dart';
 import 'package:news_app_2/services/slider_data.dart';
 import 'package:news_app_2/widgets/app_bar.dart';
@@ -37,12 +38,20 @@ class _HomeScreenState extends State<HomeScreen> {
       _loading = false;
     });
   }
+  getSlider() async {
+    Sliders slider = Sliders();
+    await slider.getSlider();
+    sliders = slider.sliders;
+    setState(() {
+      _loading = false;
+    });
+  }
 
   //?? init
   @override
   void initState() {
     categories = getCategories();
-    sliders = getSliders();
+    getSlider();
     getNews();
     super.initState();
   }
@@ -79,12 +88,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 30.0),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                   Padding(
+                    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "Breaking News!",
                           style: TextStyle(
                             color: Colors.black,
@@ -92,14 +101,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 18.0,
                           ),
                         ),
-                        Text(
-                          "View All",
-                          style: TextStyle(
-                            color: Colors.deepOrange,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.deepOrange,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16.0,
+                        InkWell(
+                          hoverColor: Colors.orangeAccent,
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => AllNews(news: "Breaking")));
+                          },
+                          child: const Text(
+                            "View All",
+                            style: TextStyle(
+                              color: Colors.deepOrange,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.deepOrange,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.0,
+                            ),
                           ),
                         ),
                       ],
@@ -109,16 +124,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20.0,
                   ),
                   CarouselSlider.builder(
-                    itemCount: sliders.length,
+                    itemCount: 5,
                     itemBuilder: (
                       context,
                       index,
                       realImage,
                     ) {
-                      String? res = sliders[index].image;
-                      String? res1 = sliders[index].name;
-                      return BuildImage(
-                          image: res!, index: index, name: res1!);
+                      String? res = sliders[index].urlToImage;
+                      String? res1 = sliders[index].title;
+                      return BuildImage(image: res!, index: index, name: res1!);
                     },
                     options: CarouselOptions(
                         height: 250,
@@ -143,12 +157,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 15.0,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "Trending News!",
                           style: TextStyle(
                             color: Colors.black,
@@ -156,14 +170,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 18.0,
                           ),
                         ),
-                        Text(
-                          "View All",
-                          style: TextStyle(
-                            color: Colors.deepOrange,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Colors.deepOrange,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16.0,
+                        InkWell(
+                          splashColor: Colors.orangeAccent,
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (_) => AllNews(news: "Trending")));
+                          },
+                          child: const Text(
+                            "View All",
+                            style: TextStyle(
+                              color: Colors.deepOrange,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.deepOrange,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.0,
+                            ),
                           ),
                         ),
                       ],
@@ -173,14 +193,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 15.0,
                   ),
                   ListView.builder(
-                    shrinkWrap: true,
+                      shrinkWrap: true,
                       physics: const ClampingScrollPhysics(),
                       itemCount: articles.length,
                       itemBuilder: (context, index) {
                         return TrendingNews(
-                            desc: articles[index].description!,
-                            imageUrl: articles[index].urlToImage!,
-                            title: articles[index].title!, url: articles[index].url!,);
+                          desc: articles[index].description!,
+                          imageUrl: articles[index].urlToImage!,
+                          title: articles[index].title!,
+                          url: articles[index].url!,
+                        );
                       }),
                 ],
               ),
