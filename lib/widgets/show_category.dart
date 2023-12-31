@@ -11,14 +11,16 @@ class ShowCategory extends StatelessWidget {
     required this.desc,
     required this.title,
     required this.url,
-
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleViewScreen(blogUrl: url)));
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ArticleViewScreen(blogUrl: url)));
       },
       child: Column(
         children: [

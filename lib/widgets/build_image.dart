@@ -4,11 +4,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BuildImage extends StatelessWidget {
-  String image;
-  int index;
-  String name;
+  final String image;
+  final int index;
+  final String name;
 
-  BuildImage(
+  const BuildImage(
       {super.key,
       required this.image,
       required this.index,

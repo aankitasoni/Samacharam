@@ -7,7 +7,6 @@ class ArticleViewScreen extends StatefulWidget {
 
   ArticleViewScreen({required this.blogUrl});
 
-
   @override
   State<ArticleViewScreen> createState() => _ArticleViewScreenState();
 }

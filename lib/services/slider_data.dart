@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/slider_model.dart';
 
-
 class Sliders {
   List<SliderModel> sliders = [];
 
@@ -16,7 +15,7 @@ class Sliders {
 
     if (jsonData['status'] == 'ok') {
       jsonData["articles"].forEach(
-            (element) {
+        (element) {
           if (element["urlToImage"] != null && element['description'] != null) {
             SliderModel sliderModel = SliderModel(
               title: element["title"],

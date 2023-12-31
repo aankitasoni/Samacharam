@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _loading = false;
     });
   }
+
   getSlider() async {
     Sliders slider = Sliders();
     await slider.getSlider();
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 30.0),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,8 +104,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         InkWell(
                           hoverColor: Colors.orangeAccent,
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => AllNews(news: "Breaking")));
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const AllNews(news: "Breaking"),
+                              ),
+                            );
                           },
                           child: const Text(
                             "View All",
@@ -172,8 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         InkWell(
                           splashColor: Colors.orangeAccent,
-                          onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (_) => AllNews(news: "Trending")));
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) =>
+                                    const AllNews(news: "Trending")));
                           },
                           child: const Text(
                             "View All",

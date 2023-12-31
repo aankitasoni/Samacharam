@@ -9,7 +9,7 @@ import '../services/slider_data.dart';
 class AllNews extends StatefulWidget {
   final String news;
 
-  AllNews({
+  const AllNews({
     super.key,
     required this.news,
   });
@@ -26,17 +26,14 @@ class _AllNewsState extends State<AllNews> {
     News news = News();
     await news.getNews();
     articles = news.news;
-    setState(() {
-
-    });
+    setState(() {});
   }
+
   getSlider() async {
     Sliders slider = Sliders();
     await slider.getSlider();
     sliders = slider.sliders;
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -50,28 +47,37 @@ class _AllNewsState extends State<AllNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-            "${widget.news} News",
-            style: const TextStyle(
-              color: Colors.purple,
-              fontSize: 23,
-            ),
+        title: Text(
+          "${widget.news} News",
+          style: const TextStyle(
+            color: Colors.purple,
+            fontSize: 23,
           ),
-          centerTitle: true,
-          elevation: 5.0,
+        ),
+        centerTitle: true,
+        elevation: 5.0,
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView.builder(
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
-            itemCount: widget.news == "Breaking"? sliders.length : articles.length,
+            itemCount:
+                widget.news == "Breaking" ? sliders.length : articles.length,
             itemBuilder: (context, index) {
               return AllNewsSection(
-                Image: widget.news == "Breaking"? sliders[index].urlToImage! : articles[index].urlToImage!,
-                desc: widget.news == "Breaking"? sliders[index].description! : articles[index].description!,
-                title: widget.news == "Breaking"? sliders[index].title! : articles[index].title!,
-                url: widget.news == "Breaking"? sliders[index].url! : articles[index].url!,
+                image: widget.news == "Breaking"
+                    ? sliders[index].urlToImage!
+                    : articles[index].urlToImage!,
+                desc: widget.news == "Breaking"
+                    ? sliders[index].description!
+                    : articles[index].description!,
+                title: widget.news == "Breaking"
+                    ? sliders[index].title!
+                    : articles[index].title!,
+                url: widget.news == "Breaking"
+                    ? sliders[index].url!
+                    : articles[index].url!,
               );
             }),
       ),

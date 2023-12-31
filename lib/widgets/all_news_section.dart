@@ -3,29 +3,31 @@ import 'package:flutter/material.dart';
 import 'package:news_app_2/screens/article_view_screen.dart';
 
 class AllNewsSection extends StatelessWidget {
-  String Image, desc, title, url;
+  final String image, desc, title, url;
 
-  AllNewsSection({
+  const AllNewsSection({
     super.key,
-    required this.Image,
+    required this.image,
     required this.desc,
     required this.title,
     required this.url,
-
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleViewScreen(blogUrl: url)));
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ArticleViewScreen(blogUrl: url)));
       },
       child: Column(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: CachedNetworkImage(
-              imageUrl: Image,
+              imageUrl: image,
               width: MediaQuery.of(context).size.width,
               height: 200,
               fit: BoxFit.cover,

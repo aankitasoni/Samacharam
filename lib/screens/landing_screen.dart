@@ -70,28 +70,6 @@ class _LandingScreenState extends State<LandingScreen> {
                 ),
               ),
             ),
-            // Material(
-            //   child: Container(
-            //     width: MediaQuery.of(context).size.width / 1.2,
-            //     padding: const EdgeInsets.symmetric(
-            //       vertical: 15,
-            //     ),
-            //     decoration: BoxDecoration(
-            //       color: Colors.deepOrange,
-            //       borderRadius: BorderRadius.circular(30),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //         "Get Started",
-            //         style: TextStyle(
-            //           color: Colors.white,
-            //           fontSize: 18,
-            //           fontWeight: FontWeight.w500,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

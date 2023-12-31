@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:news_app_2/models/show_category_model.dart';
 
-
 class ShowCategoryNews {
   List<ShowCategoryModel> categories = [];
 
@@ -15,9 +14,9 @@ class ShowCategoryNews {
 
     if (jsonData['status'] == 'ok') {
       jsonData["articles"].forEach(
-            (element) {
+        (element) {
           if (element["urlToImage"] != null && element['description'] != null) {
-             ShowCategoryModel categoryModel = ShowCategoryModel(
+            ShowCategoryModel categoryModel = ShowCategoryModel(
               title: element["title"],
               description: element["description"],
               url: element["url"],

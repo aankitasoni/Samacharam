@@ -16,8 +16,13 @@ class TrendingNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleViewScreen(blogUrl: url)));
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticleViewScreen(blogUrl: url),
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 10.0),
@@ -27,7 +32,8 @@ class TrendingNews extends StatelessWidget {
             elevation: 3.0,
             borderRadius: BorderRadius.circular(10),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -57,7 +63,9 @@ class TrendingNews extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 7,),
+                      const SizedBox(
+                        height: 7,
+                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 1.7,
                         child: Text(

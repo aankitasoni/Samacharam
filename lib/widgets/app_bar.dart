@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-Widget appBar(){
+Widget appBar() {
   return const Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
         "समा",
-        style: TextStyle(fontSize: 33),
+        style: TextStyle(
+          fontSize: 33,
+        ),
       ),
       Text(
         "चारं",
