@@ -12,20 +12,18 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[100],
       body: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        margin: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
         child: Column(
           children: [
-            Material(
-              elevation: 2.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: Image.asset(
-                  "images/img.png",
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 1.7,
-                  fit: BoxFit.cover,
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Image.asset(
+                "images/samacharam.png",
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 1.7,
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(
