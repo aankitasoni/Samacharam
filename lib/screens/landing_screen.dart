@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_2/screens/home_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -15,13 +16,16 @@ class _LandingScreenState extends State<LandingScreen> {
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset(
-                "images/img.png",
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 1.7,
-                fit: BoxFit.cover,
+            Material(
+              elevation: 2.0,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.asset(
+                  "images/img.png",
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 1.7,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(
@@ -49,28 +53,47 @@ class _LandingScreenState extends State<LandingScreen> {
             const SizedBox(
               height: 40.0,
             ),
-            Material(
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.2,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 15,
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 1.7,
+              height: 60,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                },
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.deepPurple),
                 ),
-                decoration: BoxDecoration(
-                  color: Colors.deepOrange,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Center(
-                  child: Text(
-                    "Get Started",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
+                child: const Text(
+                  'Get Started',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
                   ),
                 ),
               ),
             ),
+            // Material(
+            //   child: Container(
+            //     width: MediaQuery.of(context).size.width / 1.2,
+            //     padding: const EdgeInsets.symmetric(
+            //       vertical: 15,
+            //     ),
+            //     decoration: BoxDecoration(
+            //       color: Colors.deepOrange,
+            //       borderRadius: BorderRadius.circular(30),
+            //     ),
+            //     child: const Center(
+            //       child: Text(
+            //         "Get Started",
+            //         style: TextStyle(
+            //           color: Colors.white,
+            //           fontSize: 18,
+            //           fontWeight: FontWeight.w500,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
