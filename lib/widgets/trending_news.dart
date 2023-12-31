@@ -52,7 +52,7 @@ class TrendingNews extends StatelessWidget {
                   Column(
                     children: [
                       SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.8,
+                        width: MediaQuery.of(context).size.width / 1.9,
                         child: Text(
                           title,
                           maxLines: 2,
@@ -67,7 +67,7 @@ class TrendingNews extends StatelessWidget {
                         height: 7,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.7,
+                        width: MediaQuery.of(context).size.width / 1.9,
                         child: Text(
                           desc,
                           maxLines: 3,
