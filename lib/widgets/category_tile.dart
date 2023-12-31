@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CategoryTile extends StatelessWidget {
-  final image, categoryName;
+  final String image, categoryName;
 
-  const CategoryTile({super.key, this.image, this.categoryName});
+  const CategoryTile(
+      {super.key, required this.image, required this.categoryName});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 14),
+      margin: const EdgeInsets.only(
+        right: 14,
+      ),
       child: Stack(
         children: [
           ClipRRect(
@@ -30,7 +33,7 @@ class CategoryTile extends StatelessWidget {
             child: Center(
               child: Text(
                 categoryName,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
