@@ -1,4 +1,4 @@
-# news_app_2
+# Samacharam
 
 A new Flutter project.
 
